@@ -41,64 +41,68 @@ console.log(ansLetter);
 
 
 for (var i=0; i< 4; i++){
-document.onkeyup = function(event) {
 
-	// Determines which exact key was selected. Make it lowercase
-	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-guessedLetter.push(userGuess);
-// Check each user input against each letter for the word
+	document.onkeyup = function(event) {
+
+		// Determines which exact key was selected. Make it lowercase
+		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+		
+		guessedLetter.push(userGuess);
+		console.log(guessedLetter);
+	// Check each user input against each letter for the word
 
 
-for (var i=0; i<word.length;i++) {
+	for (var i=0; i<word.length;i++) {
 
-	if (ansLetter[i]==userGuess) {
-		console.log(ansLetter[i]);
-		console.log(userGuess);
-		gGuess.push(userGuess)
+		if (ansLetter[i]==userGuess) {
+			console.log(ansLetter[i]);
+			console.log(userGuess);
+			gGuess.push(userGuess)
 
+			}
+			else {
+			badletterCount=badletterCount+1
+			}
+		console.log(badletterCount);
 		}
+
+		
+
+	if (badletterCount==word.length){
+			badGuess=badGuess+1;
+			console.log(badGuess);
+
+			} 
 		else {
-		badletterCount=badletterCount+1
+			badGuess==badGuess;
+			console.log(badGuess)
+			}
+		
+		badletterCount=0;
+
+
+	console.log("gameleft: ",gameOver-badGuess);
+
+	console.log(badGuess);
+	console.log(gameOver);
+	console.log(gGuess);
+	console.log(ansLetter);
+
+	if (badGuess==gameOver) {
+		console.log("Game Over")
 		}
-	console.log(badletterCount);
-	}
-
-	
-
-if (badletterCount==word.length){
-		badGuess=badGuess+1;
-		console.log(badGuess);
-
-		} 
-	else {
-		badGuess==badGuess;
-		console.log(badGuess)
+		else if (gGuess==ansLetter){
+			console.log(ansLetter);
+		
 		}
-	
-	badletterCount=0;
 
-
-console.log("gameleft: ",gameOver-badGuess);
-
-console.log(badGuess);
-console.log(gameOver);
-console.log(gGuess);
-console.log(ansLetter);
-
-if (badGuess==gameOver) {
-	console.log("Game Over")
-	}
-	else if (gGuess==ansLetter){
-		console.log(ansLetter);
-	
+			// Placing the html into the game ID
+			document.querySelector('#game').innerHTML = html;
 	}
 
-
-		// Placing the html into the game ID
-		document.querySelector('#game').innerHTML = html;
-
-	}
 }
+
+
 
 </script>
 </body>
