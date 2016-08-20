@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+</head>
+<body>
+
+<!-- This is where the code will go that we created. -->
+<div id="game">
+	<p>Hang Man</p>
+	Letter Already Guessed: 
+</div>
+
+<script type="text/javascript">
+
+
+
+// Sets the computer choices
+var badGuess=0;
+var gameOver=3;
+var badLetter=[""];
+
+var gLetterGuess=0;
+var guessedLetter=[];
+var userGuess=[];
+var gGuess=[]
+
+badletterCount=0
+var choices = ['ace','is','as','me'];
+
+
+var word = choices[Math.floor(choices.length * Math.random())];
+var ansLetter = [];
+
+for (i=0; i<word.length; i++){
+	ansLetter[i]=word.charAt(i);
+
+}
+
+console.log(ansLetter);
+
+
+for (var i=0; i< 4; i++){
+document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+guessedLetter.push(userGuess);
+// Check each user input against each letter for the word
+
+
+for (var i=0; i<word.length;i++) {
+
+	if (ansLetter[i]==userGuess) {
+		console.log(ansLetter[i]);
+		console.log(userGuess);
+		gGuess.push(userGuess)
+
+		}
+		else {
+		badletterCount=badletterCount+1
+		}
+	console.log(badletterCount);
+	}
+
+	
+
+if (badletterCount==word.length){
+		badGuess=badGuess+1;
+		console.log(badGuess);
+
+		} 
+	else {
+		badGuess==badGuess;
+		console.log(badGuess)
+		}
+	
+	badletterCount=0;
+
+
+console.log("gameleft: ",gameOver-badGuess);
+
+console.log(badGuess);
+console.log(gameOver);
+console.log(gGuess);
+console.log(ansLetter);
+
+if (badGuess==gameOver) {
+	console.log("Game Over")
+	}
+	else if (gGuess==ansLetter){
+		console.log(ansLetter);
+	
+	}
+
+
+		// Placing the html into the game ID
+		document.querySelector('#game').innerHTML = html;
+
+	}
+}
+
+</script>
+</body>
+</html>
